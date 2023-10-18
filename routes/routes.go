@@ -1,17 +1,20 @@
 package routes
 
 import (
-	"net/http"
-
+	"pos-app/controller"
 	"github.com/labstack/echo"
+	
 )
 
 func Init() *echo.Echo {
+
 	e := echo.New()
 
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "hello world!")
-	})
+	//e = e.Group("/book")
+	e.POST("/book", controller.CreateBook)
+	e.GET("/book:id", controller.GetBook)
+	e.PUT("/book:id", controller.UpdateBook)
+	e.DELETE("/book:id", controller.DeleteBook)
 	
-	return e
+	return	e
 }
