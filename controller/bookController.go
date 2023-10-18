@@ -93,9 +93,9 @@ func GetBook(c echo.Context) error {
 	id := c.Param("id")
 	db := config.DB()
 
-	var books []*models.Book
+	var book []*models.Book
 
-	if res := db.Find(&books, id); res.Error != nil {
+	if res := db.Find(&book, id); res.Error != nil {
 		data := map[string]interface{} {
 			"message": res.Error.Error(),
 		}
@@ -104,7 +104,7 @@ func GetBook(c echo.Context) error {
 	}
 
 	response := map[string]interface{} {
-		"data": books[0],
+		"data": book[0],
 	}
 
 	return c.JSON(http.StatusOK, response)
