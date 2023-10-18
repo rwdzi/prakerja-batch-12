@@ -11,7 +11,7 @@ var e error
 
 func DatabaseInit () {
 
-	dsn := "root:blank111@tcp(127.0.0.1:3306)/echo_rest?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "rwdzi:rwdzi111@tcp(127.0.0.1:3306)/echo_rest?charset=utf8mb4&parseTime=True&loc=Local"
 	database, e = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if e != nil {
